@@ -4,10 +4,10 @@
 		module="mrproject_2.12"
 		revision="1.0"
 		status="integration"
-		publication="20170419194911"
+		publication="20170419202551"
 	>
 		<description>
-		MRProject
+		mrproject
 		</description>
 	</info>
 	<configurations>
@@ -34,5 +34,7 @@
 	<dependencies>
 		<dependency org="org.scala-lang" name="scala-compiler" rev="2.12.2" conf="scala-tool->default,optional(default)"/>
 		<dependency org="org.scala-lang" name="scala-library" rev="2.12.2" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="org.apache.spark" name="spark-core_2.12" rev="2.1.0" conf="compile->default(compile)"/>
+		<dependency org="org.apache.spark" name="spark-mllib_2.12" rev="2.1.0" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

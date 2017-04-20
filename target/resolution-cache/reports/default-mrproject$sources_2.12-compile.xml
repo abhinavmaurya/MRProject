@@ -7,16 +7,198 @@
 		revision="1.0"
 		conf="compile"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20170419194912"/>
+		date="20170419200754"/>
 	<dependencies>
+		<module organisation="org.scala-lang" name="scala-reflect">
+			<revision name="2.12.2" status="release" pubdate="20170413041812" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.12.2/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="2">
+				<license name="BSD 3-Clause" url="http://www.scala-lang.org/license.html"/>
+				<metadata-artifact status="no" details="" size="2825" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.scala-lang/scala-reflect/ivy-2.12.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.2/scala-reflect-2.12.2.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="2.12.2" rev-constraint-default="2.12.2" rev-constraint-dynamic="2.12.2" callerrev="1.0" extra-info.apiURL="http://www.scala-lang.org/api/2.12.2/"/>
+				<artifacts>
+					<artifact name="scala-reflect" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="574818" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.scala-lang/scala-reflect/srcs/scala-reflect-2.12.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.2/scala-reflect-2.12.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
 		<module organisation="org.scala-lang" name="scala-library">
-			<revision name="2.12.2" status="release" pubdate="20170413041911" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.12.2/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="0">
+			<revision name="2.12.2" status="release" pubdate="20170413041911" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.12.2/" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="6">
 				<license name="BSD 3-Clause" url="http://www.scala-lang.org/license.html"/>
 				<metadata-artifact status="no" details="" size="2653" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.scala-lang/scala-library/ivy-2.12.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.2/scala-library-2.12.2.pom"/>
 				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="2.12.2" rev-constraint-default="2.12.2" rev-constraint-dynamic="2.12.2" callerrev="1.0" extra-info.apiURL="http://www.scala-lang.org/api/2.12.2/"/>
 				<artifacts>
 					<artifact name="scala-library" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="990185" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.2/scala-library-2.12.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.spark" name="spark-mllib-local_2.10">
+			<revision name="2.0.1" status="release" pubdate="20160928212603" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://spark.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="0">
+				<license name="Apache 2.0 License" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="72136" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.apache.spark/spark-mllib-local_2.10/ivy-2.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/spark/spark-mllib-local_2.10/2.0.1/spark-mllib-local_2.10-2.0.1.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="2.0.1" rev-constraint-default="2.0.1" rev-constraint-dynamic="2.0.1" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="spark-mllib-local_2.10" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="27607" time="74" location="/Users/vikasjanardhanan/.ivy2/cache/org.apache.spark/spark-mllib-local_2.10/srcs/spark-mllib-local_2.10-2.0.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/spark/spark-mllib-local_2.10/2.0.1/spark-mllib-local_2.10-2.0.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.spark" name="spark-tags_2.10">
+			<revision name="2.0.1" status="release" pubdate="20160928213026" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://spark.apache.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="7">
+				<license name="Apache 2.0 License" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="70916" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.apache.spark/spark-tags_2.10/ivy-2.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/spark/spark-tags_2.10/2.0.1/spark-tags_2.10-2.0.1.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="2.0.1" rev-constraint-default="2.0.1" rev-constraint-dynamic="2.0.1" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="spark-tags_2.10" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="14685" time="56" location="/Users/vikasjanardhanan/.ivy2/cache/org.apache.spark/spark-tags_2.10/srcs/spark-tags_2.10-2.0.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/spark/spark-tags_2.10/2.0.1/spark-tags_2.10-2.0.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.spark-project.spark" name="unused">
+			<revision name="1.0.0" status="release" pubdate="20141022030005" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="13">
+				<license name="The Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2975" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.spark-project.spark/unused/ivy-1.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/spark-project/spark/unused/1.0.0/unused-1.0.0.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="unused" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="594" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.spark-project.spark/unused/srcs/unused-1.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/spark-project/spark/unused/1.0.0/unused-1.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalatest" name="scalatest_2.10">
+			<revision name="2.2.6" status="release" pubdate="20160105135059" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scalatest.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="14">
+				<license name="the Apache License, ASL Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="4816" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.scalatest/scalatest_2.10/ivy-2.2.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.6/scalatest_2.10-2.2.6.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="2.2.6" rev-constraint-default="2.2.6" rev-constraint-dynamic="2.2.6" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="scalatest_2.10" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="1439140" time="212" location="/Users/vikasjanardhanan/.ivy2/cache/org.scalatest/scalatest_2.10/srcs/scalatest_2.10-2.2.6-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.6/scalatest_2.10-2.2.6-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.commons" name="commons-math3">
+			<revision name="3.4.1" status="release" pubdate="20150108122810" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-math/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="15">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="11263" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.apache.commons/commons-math3/ivy-3.4.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.4.1/commons-math3-3.4.1.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="3.4.1" rev-constraint-default="3.4.1" rev-constraint-dynamic="3.4.1" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="commons-math3" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="2322449" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.apache.commons/commons-math3/srcs/commons-math3-3.4.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.4.1/commons-math3-3.4.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalanlp" name="breeze_2.10">
+			<revision name="0.11.2" status="release" pubdate="20150326131614" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalanlp.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="11">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="4703" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.scalanlp/breeze_2.10/ivy-0.11.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalanlp/breeze_2.10/0.11.2/breeze_2.10-0.11.2.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="0.11.2" rev-constraint-default="0.11.2" rev-constraint-dynamic="0.11.2" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="breeze_2.10" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="447470" time="106" location="/Users/vikasjanardhanan/.ivy2/cache/org.scalanlp/breeze_2.10/srcs/breeze_2.10-0.11.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalanlp/breeze_2.10/0.11.2/breeze_2.10-0.11.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.slf4j" name="slf4j-api">
+			<revision name="1.7.5" status="release" pubdate="20130325165215" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="12">
+				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license.php"/>
+				<metadata-artifact status="no" details="" size="4383" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.slf4j/slf4j-api/ivy-1.7.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="slf4j-api" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="47186" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.slf4j/slf4j-api/srcs/slf4j-api-1.7.5-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.spire-math" name="spire_2.10">
+			<revision name="0.7.4" status="release" pubdate="20140424112204" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://spire-math.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="3">
+				<license name="BSD-style" url="http://opensource.org/licenses/MIT"/>
+				<metadata-artifact status="no" details="" size="3313" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.spire-math/spire_2.10/ivy-0.7.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/spire-math/spire_2.10/0.7.4/spire_2.10-0.7.4.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="0.7.4" rev-constraint-default="0.7.4" rev-constraint-dynamic="0.7.4" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="spire_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="175888" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.spire-math/spire_2.10/srcs/spire_2.10-0.7.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/spire-math/spire_2.10/0.7.4/spire_2.10-0.7.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.spire-math" name="spire-macros_2.10">
+			<revision name="0.7.4" status="release" pubdate="20140424111914" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://spire-math.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="8">
+				<license name="BSD-style" url="http://opensource.org/licenses/MIT"/>
+				<metadata-artifact status="no" details="" size="3184" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.spire-math/spire-macros_2.10/ivy-0.7.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/spire-math/spire-macros_2.10/0.7.4/spire-macros_2.10-0.7.4.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="0.7.4" rev-constraint-default="0.7.4" rev-constraint-dynamic="0.7.4" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="spire-macros_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="6151" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.spire-math/spire-macros_2.10/srcs/spire-macros_2.10-0.7.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/spire-math/spire-macros_2.10/0.7.4/spire-macros_2.10-0.7.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalamacros" name="quasiquotes_2.10">
+			<revision name="2.0.0" status="release" pubdate="20140417050710" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/scalamacros/paradise" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="10">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html"/>
+				<metadata-artifact status="no" details="" size="2868" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.scalamacros/quasiquotes_2.10/ivy-2.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalamacros/quasiquotes_2.10/2.0.0/quasiquotes_2.10-2.0.0.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="2.0.0" rev-constraint-default="2.0.0" rev-constraint-dynamic="2.0.0" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="quasiquotes_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="53173" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.scalamacros/quasiquotes_2.10/srcs/quasiquotes_2.10-2.0.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalamacros/quasiquotes_2.10/2.0.0/quasiquotes_2.10-2.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.github.rwl" name="jtransforms">
+			<revision name="2.4.0" status="release" pubdate="20120519100656" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://sourceforge.net/projects/jtransforms/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="9">
+				<license name="MPL" url="http://www.mozilla.org/MPL/2.0/index.txt"/>
+				<license name="LGPL" url="http://www.gnu.org/licenses/lgpl-2.1.txt"/>
+				<license name="GPL" url="http://www.gnu.org/licenses/gpl-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2991" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/com.github.rwl/jtransforms/ivy-2.4.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/github/rwl/jtransforms/2.4.0/jtransforms-2.4.0.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="2.4.0" rev-constraint-default="2.4.0" rev-constraint-dynamic="2.4.0" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="jtransforms" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="224626" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/com.github.rwl/jtransforms/srcs/jtransforms-2.4.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/github/rwl/jtransforms/2.4.0/jtransforms-2.4.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.sf.opencsv" name="opencsv">
+			<revision name="2.3" status="release" pubdate="20110728010018" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://opencsv.sf.net" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="4">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3354" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/net.sf.opencsv/opencsv/ivy-2.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/net/sf/opencsv/opencsv/2.3/opencsv-2.3.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="2.3" rev-constraint-default="2.3" rev-constraint-dynamic="2.3" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="opencsv" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="17058" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/net.sf.opencsv/opencsv/srcs/opencsv-2.3-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/net/sf/opencsv/opencsv/2.3/opencsv-2.3-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.github.fommil.netlib" name="core">
+			<revision name="1.1.2" status="release" pubdate="20131126065411" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="5">
+				<license name="BSD 3 Clause" url="http://opensource.org/licenses/BSD-3-Clause"/>
+				<metadata-artifact status="no" details="" size="4893" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/com.github.fommil.netlib/core/ivy-1.1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/github/fommil/netlib/core/1.1.2/core-1.1.2.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="1.1.2" rev-constraint-default="1.1.2" rev-constraint-dynamic="1.1.2" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="679224" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/com.github.fommil.netlib/core/srcs/core-1.1.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/github/fommil/netlib/core/1.1.2/core-1.1.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalanlp" name="breeze-macros_2.10">
+			<revision name="0.11.2" status="release" pubdate="20150326131115" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalanlp.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="1">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="3304" time="0" location="/Users/vikasjanardhanan/.ivy2/cache/org.scalanlp/breeze-macros_2.10/ivy-0.11.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalanlp/breeze-macros_2.10/0.11.2/breeze-macros_2.10-0.11.2.pom"/>
+				<caller organisation="default" name="mrproject$sources_2.12" conf="compile" rev="0.11.2" rev-constraint-default="0.11.2" rev-constraint-dynamic="0.11.2" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="breeze-macros_2.10" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="5543" time="30" location="/Users/vikasjanardhanan/.ivy2/cache/org.scalanlp/breeze-macros_2.10/srcs/breeze-macros_2.10-0.11.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalanlp/breeze-macros_2.10/0.11.2/breeze-macros_2.10-0.11.2-sources.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
