@@ -1,4 +1,4 @@
-[info] Updating {file:/Users/vikasjanardhanan/git/MRProject/project/}mrproject-build...
+[info] Updating {file:/Users/abhinavmaurya/IdeaProjects/MRProject/project/}mrproject-build...
 [debug] :: resolving dependencies :: default#mrproject-build;0.1-SNAPSHOT
 [debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool]
 [debug] 	validate = true
@@ -6009,19 +6009,19 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 1323ms :: artifacts dl 28ms
-[debug] 	report for default#mrproject-build;0.1-SNAPSHOT compile produced in /Users/vikasjanardhanan/git/MRProject/project/target/resolution-cache/reports/default-mrproject-build-compile.xml
-[debug] 	report for default#mrproject-build;0.1-SNAPSHOT runtime produced in /Users/vikasjanardhanan/git/MRProject/project/target/resolution-cache/reports/default-mrproject-build-runtime.xml
-[debug] 	report for default#mrproject-build;0.1-SNAPSHOT test produced in /Users/vikasjanardhanan/git/MRProject/project/target/resolution-cache/reports/default-mrproject-build-test.xml
-[debug] 	report for default#mrproject-build;0.1-SNAPSHOT provided produced in /Users/vikasjanardhanan/git/MRProject/project/target/resolution-cache/reports/default-mrproject-build-provided.xml
-[debug] 	report for default#mrproject-build;0.1-SNAPSHOT optional produced in /Users/vikasjanardhanan/git/MRProject/project/target/resolution-cache/reports/default-mrproject-build-optional.xml
-[debug] 	report for default#mrproject-build;0.1-SNAPSHOT compile-internal produced in /Users/vikasjanardhanan/git/MRProject/project/target/resolution-cache/reports/default-mrproject-build-compile-internal.xml
-[debug] 	report for default#mrproject-build;0.1-SNAPSHOT runtime-internal produced in /Users/vikasjanardhanan/git/MRProject/project/target/resolution-cache/reports/default-mrproject-build-runtime-internal.xml
-[debug] 	report for default#mrproject-build;0.1-SNAPSHOT test-internal produced in /Users/vikasjanardhanan/git/MRProject/project/target/resolution-cache/reports/default-mrproject-build-test-internal.xml
-[debug] 	report for default#mrproject-build;0.1-SNAPSHOT plugin produced in /Users/vikasjanardhanan/git/MRProject/project/target/resolution-cache/reports/default-mrproject-build-plugin.xml
-[debug] 	report for default#mrproject-build;0.1-SNAPSHOT sources produced in /Users/vikasjanardhanan/git/MRProject/project/target/resolution-cache/reports/default-mrproject-build-sources.xml
-[debug] 	report for default#mrproject-build;0.1-SNAPSHOT docs produced in /Users/vikasjanardhanan/git/MRProject/project/target/resolution-cache/reports/default-mrproject-build-docs.xml
-[debug] 	report for default#mrproject-build;0.1-SNAPSHOT pom produced in /Users/vikasjanardhanan/git/MRProject/project/target/resolution-cache/reports/default-mrproject-build-pom.xml
-[debug] 	report for default#mrproject-build;0.1-SNAPSHOT scala-tool produced in /Users/vikasjanardhanan/git/MRProject/project/target/resolution-cache/reports/default-mrproject-build-scala-tool.xml
-[debug] 	resolve done (1323ms resolve - 28ms download)
+[debug] :: resolution report :: resolve 2607ms :: artifacts dl 45ms
+[debug] 	report for default#mrproject-build;0.1-SNAPSHOT compile produced in /Users/abhinavmaurya/IdeaProjects/MRProject/project/target/resolution-cache/reports/default-mrproject-build-compile.xml
+[debug] 	report for default#mrproject-build;0.1-SNAPSHOT runtime produced in /Users/abhinavmaurya/IdeaProjects/MRProject/project/target/resolution-cache/reports/default-mrproject-build-runtime.xml
+[debug] 	report for default#mrproject-build;0.1-SNAPSHOT test produced in /Users/abhinavmaurya/IdeaProjects/MRProject/project/target/resolution-cache/reports/default-mrproject-build-test.xml
+[debug] 	report for default#mrproject-build;0.1-SNAPSHOT provided produced in /Users/abhinavmaurya/IdeaProjects/MRProject/project/target/resolution-cache/reports/default-mrproject-build-provided.xml
+[debug] 	report for default#mrproject-build;0.1-SNAPSHOT optional produced in /Users/abhinavmaurya/IdeaProjects/MRProject/project/target/resolution-cache/reports/default-mrproject-build-optional.xml
+[debug] 	report for default#mrproject-build;0.1-SNAPSHOT compile-internal produced in /Users/abhinavmaurya/IdeaProjects/MRProject/project/target/resolution-cache/reports/default-mrproject-build-compile-internal.xml
+[debug] 	report for default#mrproject-build;0.1-SNAPSHOT runtime-internal produced in /Users/abhinavmaurya/IdeaProjects/MRProject/project/target/resolution-cache/reports/default-mrproject-build-runtime-internal.xml
+[debug] 	report for default#mrproject-build;0.1-SNAPSHOT test-internal produced in /Users/abhinavmaurya/IdeaProjects/MRProject/project/target/resolution-cache/reports/default-mrproject-build-test-internal.xml
+[debug] 	report for default#mrproject-build;0.1-SNAPSHOT plugin produced in /Users/abhinavmaurya/IdeaProjects/MRProject/project/target/resolution-cache/reports/default-mrproject-build-plugin.xml
+[debug] 	report for default#mrproject-build;0.1-SNAPSHOT sources produced in /Users/abhinavmaurya/IdeaProjects/MRProject/project/target/resolution-cache/reports/default-mrproject-build-sources.xml
+[debug] 	report for default#mrproject-build;0.1-SNAPSHOT docs produced in /Users/abhinavmaurya/IdeaProjects/MRProject/project/target/resolution-cache/reports/default-mrproject-build-docs.xml
+[debug] 	report for default#mrproject-build;0.1-SNAPSHOT pom produced in /Users/abhinavmaurya/IdeaProjects/MRProject/project/target/resolution-cache/reports/default-mrproject-build-pom.xml
+[debug] 	report for default#mrproject-build;0.1-SNAPSHOT scala-tool produced in /Users/abhinavmaurya/IdeaProjects/MRProject/project/target/resolution-cache/reports/default-mrproject-build-scala-tool.xml
+[debug] 	resolve done (2607ms resolve - 45ms download)
 [info] Done updating.
