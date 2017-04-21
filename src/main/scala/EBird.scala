@@ -27,36 +27,14 @@ object EBird {
     // Load and parse the data file.
     val data = sc.textFile("/Users/vikasjanardhanan/courses/mreduce/project/test_1.csv")
 
-    val df = sqlContext.read
+    var df = sqlContext.read
       .format("com.databricks.spark.csv")
       .option("header", "true") // Use first line of all files as header
       .option("inferSchema", "true") // Automatically infer data types
       .load("/Users/vikasjanardhanan/courses/mreduce/project/test_1.csv")
 
+    df = df.select("Agelaius_phoeniceus")
     df.show
-    /*
-    val samplingIndexer = new StringIndexer()
-      .setInputCol("SAMPLING_EVENT_ID")
-      .setOutputCol("SAMPLING_EVENT_ID_INDEX")
-      .fit(df)
-
-    val indexed = samplingIndexer.transform(df).toDF()
-
-    val LocIDIndexed = new StringIndexer()
-      .setInputCol("LOC_ID")
-      .setOutputCol("LOC_ID_INDEX")
-      .fit(indexed)
-
-    val dfLOCID = LocIDIndexed.transform(indexed).toDF()
-
-    val BaileyIndexed = new StringIndexer()
-      .setInputCol("BAILEY_ECOREGION")
-      .setOutputCol("BAILEY_ECOREGION_INDEX")
-      .fit(dfLOCID)
-
-    val dfWithBailey = BaileyIndexed.transform(dfLOCID).toDF()
-    val finalDF = dfWithBailey.drop("SAMPLING_EVENT_ID").drop("LOC_ID").drop("BAILEY_ECOREGION")
-*/
     val finalDFFill = df.na.replace("*",ImmutableMap.of("?", "0.0"))
       .na.replace("Agelaius_phoeniceus",ImmutableMap.of("X", "1"))
     val testDF = finalDFFill.columns.foldLeft(finalDFFill)((current, c) => current.withColumn(c, col(c).cast(DoubleType)))
@@ -68,6 +46,7 @@ object EBird {
     finalDf.printSchema
     //print(finalDf.select(finalDf("Agelaius_phoeniceus")).distinct)
     finalDf.agg(countDistinct("Agelaius_phoeniceus")).toDF().show
+
 
 
     val ignored = List("Agelaius_phoeniceus")
