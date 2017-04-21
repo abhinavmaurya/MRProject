@@ -13,6 +13,7 @@ import org.apache.spark.sql.{DataFrame, SQLContext}
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
 
 object EBird2 {
+  print(testDF.schema)
 
   val usefulColumns = List.concat(List(2, 3, 5, 26, 955, 956, 957, 958, 959, 960),List(962 to 1015));
   //val usefulColumns = List(26, 955, 956, 957, 958);
