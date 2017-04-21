@@ -12,10 +12,15 @@ import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.sql.{DataFrame, SQLContext}
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
 
+import scala.collection.mutable.ArrayBuffer
+
 object EBird2 {
 
-  val usefulColumns = List.concat(List(2, 3, 5, 26, 955, 956, 957, 958, 959, 960),List(962 to 1015));
-  //val usefulColumns = List(26, 955, 956, 957, 958);
+  //val usefulColumns = List.concat(List(2, 3, 5, 26, 955, 956, 957, 958, 959, 960),(962 to 1015));
+
+
+
+  val usefulColumns = List.concat(List(2, 3, 5, 26, 955, 956, 957, 958, 959, 960),(962 to 1015));
 
 
   def main(args: Array[String]) {
@@ -24,17 +29,13 @@ object EBird2 {
     val sc = new SparkContext(conf)
     val sqlContext = new SQLContext(sc)
 
-    print(usefulColumns)
+    print(usefulColumns.length)
 
     val data = sc.textFile("subset.csv")
       .map(line => helper(line))
       .filter(lp => lp!=null)
 
     println(data.count())
-    /*data.map(x => {
-      println(x.label);
-      println(x.features);
-    })*/
 
     val splits = data.randomSplit(Array(0.7, 0.3))
     val (trainingData, testData) = (splits(0), splits(1))
@@ -43,11 +44,11 @@ object EBird2 {
     // Empty categoricalFeaturesInfo indicates all features are continuous.
     val numClasses = 2
     val categoricalFeaturesInfo = Map[Int, Int]()
-    val numTrees = 5 // Use more in practice.
+    val numTrees = 10 // Use more in practice.
     val featureSubsetStrategy = "auto" // Let the algorithm choose.
     val impurity = "variance"
-    val maxDepth = 8
-    val maxBins = 32
+    val maxDepth = 9
+    val maxBins = 4000
 
     val model = RandomForest.trainRegressor(trainingData, categoricalFeaturesInfo,
       numTrees, featureSubsetStrategy, impurity, maxDepth, maxBins)
@@ -71,7 +72,7 @@ object EBird2 {
     if(data(0) == "SAMPLING_EVENT_ID"){
       null;
     }else {
-      val features: Array[Double] = Array.ofDim[Double](usefulColumns.length)
+      val features: ArrayBuffer[Double] = ArrayBuffer.fill(usefulColumns.length)(0.0)
 
       var arrayIndex: Int = 0
       var featuresIndex: Int = 0
@@ -84,10 +85,11 @@ object EBird2 {
         }
         arrayIndex += 1
       })
+      
+      val label = features(3)
+      features -= label
 
-      /*println(features(0));
-      features.tail.foreach(x => print(x + " "))*/
-      return LabeledPoint(features(0), Vectors.dense(features.tail))
+      return LabeledPoint(label, Vectors.dense(features.toArray))
     }
   }
 
