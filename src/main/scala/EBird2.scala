@@ -10,6 +10,7 @@ import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.sql.SQLContext
 import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType}
 object EBird2 {
+  print(testDF.schema)
 
   def main(args: Array[String]) {
 
