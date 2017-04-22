@@ -63,7 +63,7 @@ object BirdSightPredictor {
       .option("header", "true") // Use first line of all files as header
       .option("NullValue","?")
       .option("inferSchema", "true") // Automatically infer data types
-      .load("subset.csv")
+      .load("/Users/vikasjanardhanan/courses/mreduce/project/test_1.csv")
       //.load(args(0))
 
     /*
@@ -124,7 +124,7 @@ object BirdSightPredictor {
 
     // create new dataframe with added column named "notempty"
     val finalDf = testDF.withColumn("Agelaius_phoeniceus",
-      when($"Agelaius_phoeniceus" > 1.0, 1.0).otherwise(0.0))
+      when($"Agelaius_phoeniceus" >= 1.0, 1.0).otherwise(0.0))
     //finalDf.show(100)
     //finalDf.printSchema
     val assembler = new VectorAssembler()
@@ -134,15 +134,16 @@ object BirdSightPredictor {
     //val df2 = assembler.transform(finalDf)
 
 
+    /*
     val featureIndexer = new VectorIndexer()
       .setInputCol("features")
       .setOutputCol("indexedFeatures")
       .setMaxCategories(13)
-      //.fit(df2)
+      //.fit(df2)*/
 
 
 
-    val Array(trainingData, testData) = finalDf.withColumnRenamed("Agelaius_phoeniceus","label").randomSplit(Array(0.7, 0.3))
+    val Array(trainingData, testData) = finalDf.withColumnRenamed("Agelaius_phoeniceus","label").randomSplit(Array(0.8, 0.2))
 
     //featuresInput.foreach( c => {
     //  finalDf.agg(countDistinct(c)).toDF().show
@@ -151,15 +152,16 @@ object BirdSightPredictor {
      val rf = new RandomForestClassifier()
        //.setLabelCol("Agelaius_phoeniceus")
         .setLabelCol("label")
-       .setFeaturesCol("indexedFeatures")
-       .setNumTrees(125)
-       .setMaxDepth(10)
+       .setFeaturesCol("features")
+       //.setNumTrees(125)
+        .setNumTrees(25)
+       .setMaxDepth(8)
       //.setMaxBins(125)
 
 
      val pipeline = new Pipeline()
-       .setStages(Array(assembler,featureIndexer,rf))
-      //.setStages(Array(assembler,rf))
+       //.setStages(Array(assembler,featureIndexer,rf))
+      .setStages(Array(assembler,rf))
 
      val model = pipeline.fit(trainingData)
 
@@ -206,7 +208,7 @@ object BirdSightPredictor {
      println("New Accuracy after selecting best model= " + accuracy_cv)*/
 
 
-    val rfModel = model.stages(2).asInstanceOf[RandomForestClassificationModel]
+    val rfModel = model.stages(1).asInstanceOf[RandomForestClassificationModel]
 
     rfModel.write.overwrite().save("model_2")
     //rfModel.write.overwrite.save("model")

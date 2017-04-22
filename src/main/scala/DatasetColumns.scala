@@ -4,7 +4,7 @@
 
 object DatasetColumns {
   val columnNameIndexPairs = List(
-    //("SAMPLING_EVENT_ID", 0),
+    ("SAMPLING_EVENT_ID", 0),
     ("LATITUDE",2),
     ("LONGITUDE",3),
     ("MONTH",5),
