@@ -4,7 +4,7 @@
 
 object DatasetColumns {
   val columnNameIndexPairs = List(
-    ("SAMPLING_EVENT_ID", 0),
+    //("SAMPLING_EVENT_ID", 0),
     ("LATITUDE",2),
     ("LONGITUDE",3),
     ("MONTH",5),
@@ -23,7 +23,7 @@ object DatasetColumns {
     ("CAUS_PREC",966),
     ("CAUS_SNOW",967),
     ("NLCD2001_FS_C11_7500_PLAND",968),
-    ("NLCD2001_FS_C12_7500_PLAND",969),
+    //("NLCD2001_FS_C12_7500_PLAND",969),
     ("NLCD2001_FS_C21_7500_PLAND",970),
     ("NLCD2001_FS_C22_7500_PLAND",971),
     ("NLCD2001_FS_C23_7500_PLAND",972),
@@ -39,7 +39,7 @@ object DatasetColumns {
     ("NLCD2001_FS_C90_7500_PLAND",982),
     ("NLCD2001_FS_C95_7500_PLAND",983),
     ("NLCD2006_FS_C11_7500_PLAND",984),
-    ("NLCD2006_FS_C12_7500_PLAND",985),
+    //("NLCD2006_FS_C12_7500_PLAND",985),
     ("NLCD2006_FS_C21_7500_PLAND",986),
     ("NLCD2006_FS_C22_7500_PLAND",987),
     ("NLCD2006_FS_C23_7500_PLAND",988),
