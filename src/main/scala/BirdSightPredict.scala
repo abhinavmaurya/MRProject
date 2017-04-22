@@ -23,8 +23,9 @@ object BirdSightPredict {
 
   def main(args: Array[String]) {
 
+    val featuresInput = DatasetColumns.getColumnNameList.toBuffer - (DatasetColumns.getLabelColumnName, "SAMPLING_EVENT_ID")
 
-    val featuresInput = DatasetColumns.getFeaturesColumnName.toBuffer - "SAMPLING_EVENT_ID"
+    //val featuresInput = DatasetColumns.getFeaturesColumnName.toBuffer - "SAMPLING_EVENT_ID"
     println(featuresInput)
     //val colNames = DatasetColumns.getColumnNameList.toArray
 

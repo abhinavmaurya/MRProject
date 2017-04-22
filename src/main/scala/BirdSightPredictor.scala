@@ -29,7 +29,9 @@ object BirdSightPredictor {
       "TIME", "POP00_SQMI", "HOUSING_DENSITY", "HOUSING_PERCENT_VACANT",
       "CAUS_TEMP_AVG", "CAUS_TEMP_MIN", "CAUS_TEMP_MAX", "CAUS_PREC", "CAUS_SNOW")*/
 
-    val featuresInput = Array("LATITUDE","LONGITUDE","MONTH","DAY","TIME","POP00_SQMI","HOUSING_DENSITY","HOUSING_PERCENT_VACANT",
+    val featuresInput = DatasetColumns.getColumnNameList.toBuffer - (DatasetColumns.getLabelColumnName, "SAMPLING_EVENT_ID")
+
+    /*val featuresInput = Array("LATITUDE","LONGITUDE","MONTH","DAY","TIME","POP00_SQMI","HOUSING_DENSITY","HOUSING_PERCENT_VACANT",
       "ELEV_GT","BCR","OMERNIK_L3_ECOREGION","CAUS_TEMP_AVG","CAUS_TEMP_MIN",
       "CAUS_TEMP_MAX", "CAUS_PREC","CAUS_SNOW"
       ,"NLCD2001_FS_C11_7500_PLAND",
@@ -48,10 +50,10 @@ object BirdSightPredictor {
       "NLCD2011_FS_C31_7500_PLAND","NLCD2011_FS_C41_7500_PLAND","NLCD2011_FS_C42_7500_PLAND",
       "NLCD2011_FS_C43_7500_PLAND","NLCD2011_FS_C52_7500_PLAND","NLCD2011_FS_C71_7500_PLAND",
       "NLCD2011_FS_C81_7500_PLAND","NLCD2011_FS_C82_7500_PLAND","NLCD2011_FS_C90_7500_PLAND",
-      "NLCD2011_FS_C95_7500_PLAND")
+      "NLCD2011_FS_C95_7500_PLAND")*/
     val conf = new SparkConf().setAppName("EBird")
-      //.setMaster("local[*]")
-      .setMaster("yarn")
+      .setMaster("local[*]")
+      //.setMaster("yarn")
     val sc = new SparkContext(conf)
     val sqlContext = new SQLContext(sc)
     import sqlContext.implicits._
@@ -61,8 +63,8 @@ object BirdSightPredictor {
       .option("header", "true") // Use first line of all files as header
       .option("NullValue","?")
       .option("inferSchema", "true") // Automatically infer data types
-      //.load("/Users/vikasjanardhanan/courses/mreduce/project/test_1.csv")
-      .load(args(0))
+      .load("subset.csv")
+      //.load(args(0))
 
     /*
     val colNames = Array("LATITUDE", "LONGITUDE", "MONTH", "DAY",
@@ -95,7 +97,8 @@ object BirdSightPredictor {
     //df = df.select(colNames.head,colNames.tail: _*)
     //val colNos = Array(2,3,5,6,7,26,955,956,957,958,960,962,963,964,965,966,967,968,969)++ (968 to 984).toArray ++ (986 to 1000).toArray  ++ (1002 to 1015).toArray
 
-    val colNos = List.concat(List(2, 3, 5,6,7,26,955,956,957,958,960),(962 to 967),(968 to 984),(986 to 1000),(1002 to 1015)).toArray;
+    //val colNos = List.concat(List(2, 3, 5,6,7,26,955,956,957,958,960),(962 to 967),(968 to 984),(986 to 1000),(1002 to 1015)).toArray;
+    val colNos = DatasetColumns.getColumnIndexList.toBuffer - 0
     df = df.select(colNos map df.columns map col: _*)
     df.show
     val colsToBeImputed = Array("POP00_SQMI","HOUSING_DENSITY", "HOUSING_PERCENT_VACANT", "CAUS_TEMP_AVG", "CAUS_TEMP_MIN", "CAUS_TEMP_MAX", "CAUS_PREC","CAUS_SNOW","OMERNIK_L3_ECOREGION","BCR","ELEV_GT")
@@ -125,7 +128,7 @@ object BirdSightPredictor {
     //finalDf.show(100)
     //finalDf.printSchema
     val assembler = new VectorAssembler()
-      .setInputCols(featuresInput)
+      .setInputCols(featuresInput.toArray)
       .setOutputCol("features")
 
     //val df2 = assembler.transform(finalDf)
