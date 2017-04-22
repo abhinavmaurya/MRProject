@@ -17,15 +17,12 @@ import scala.collection.mutable.ArrayBuffer
 object EBird2 {
 
   //val usefulColumns = List.concat(List(2, 3, 5, 26, 955, 956, 957, 958, 959, 960),(962 to 1015));
-
-
-
   val usefulColumns = List.concat(List(2, 3, 5, 26, 955, 956, 957, 958, 959, 960),(962 to 1015));
 
 
   def main(args: Array[String]) {
 
-    val conf = new SparkConf().setAppName("PageRank").setMaster("local[*]")
+    val conf = new SparkConf().setAppName("EBird").setMaster("local[*]")
     val sc = new SparkContext(conf)
     val sqlContext = new SQLContext(sc)
 
@@ -85,7 +82,7 @@ object EBird2 {
         }
         arrayIndex += 1
       })
-      
+
       val label = features(3)
       features -= label
 
