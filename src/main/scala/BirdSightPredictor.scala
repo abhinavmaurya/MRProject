@@ -23,10 +23,15 @@ object BirdSightPredictor {
 
 
   def main(args: Array[String]) {
+
+    val featuresInput = Array("LATITUDE", "LONGITUDE", "MONTH", "DAY",
+      "TIME", "POP00_SQMI", "HOUSING_DENSITY", "HOUSING_PERCENT_VACANT",
+      "CAUS_TEMP_AVG", "CAUS_TEMP_MIN", "CAUS_TEMP_MAX", "CAUS_PREC", "CAUS_SNOW")
+    /*
     val featuresInput = Array("LATITUDE","LONGITUDE","MONTH","DAY","TIME","POP00_SQMI","HOUSING_DENSITY","HOUSING_PERCENT_VACANT",
       "ELEV_GT","BCR","OMERNIK_L3_ECOREGION","CAUS_TEMP_AVG","CAUS_TEMP_MIN",
-      "CAUS_TEMP_MAX", "CAUS_PREC","CAUS_SNOW")
-      /*,"NLCD2001_FS_C11_7500_PLAND"
+      "CAUS_TEMP_MAX", "CAUS_PREC","CAUS_SNOW"
+      ,"NLCD2001_FS_C11_7500_PLAND",
       "NLCD2001_FS_C21_7500_PLAND","NLCD2001_FS_C22_7500_PLAND","NLCD2001_FS_C23_7500_PLAND",
       "NLCD2001_FS_C24_7500_PLAND","NLCD2001_FS_C31_7500_PLAND","NLCD2001_FS_C41_7500_PLAND",
       "NLCD2001_FS_C42_7500_PLAND","NLCD2001_FS_C43_7500_PLAND","NLCD2001_FS_C52_7500_PLAND",
@@ -58,12 +63,16 @@ object BirdSightPredictor {
       //.load("/Users/vikasjanardhanan/courses/mreduce/project/test_1.csv")
       .load(args(0))
 
+    val colNames = Array("LATITUDE", "LONGITUDE", "MONTH", "DAY",
+      "TIME","Agelaius_phoeniceus", "POP00_SQMI", "HOUSING_DENSITY", "HOUSING_PERCENT_VACANT",
+      "CAUS_TEMP_AVG", "CAUS_TEMP_MIN", "CAUS_TEMP_MAX", "CAUS_PREC", "CAUS_SNOW")
+
+    /*
     val colNames = Array("LATITUDE","LONGITUDE","MONTH","DAY","TIME","Agelaius_phoeniceus",
       "POP00_SQMI","HOUSING_DENSITY","HOUSING_PERCENT_VACANT","ELEV_GT"
       ,"BCR","OMERNIK_L3_ECOREGION","CAUS_TEMP_AVG","CAUS_TEMP_MIN","CAUS_TEMP_MAX",
-      "CAUS_PREC","CAUS_SNOW")
-
-      /*,"NLCD2001_FS_C11_7500_PLAND",
+      "CAUS_PREC","CAUS_SNOW"
+      ,"NLCD2001_FS_C11_7500_PLAND",
       "NLCD2001_FS_C21_7500_PLAND","NLCD2001_FS_C22_7500_PLAND","NLCD2001_FS_C23_7500_PLAND",
       "NLCD2001_FS_C24_7500_PLAND","NLCD2001_FS_C31_7500_PLAND","NLCD2001_FS_C41_7500_PLAND",
       "NLCD2001_FS_C42_7500_PLAND","NLCD2001_FS_C43_7500_PLAND","NLCD2001_FS_C52_7500_PLAND",
@@ -80,9 +89,15 @@ object BirdSightPredictor {
       "NLCD2011_FS_C43_7500_PLAND","NLCD2011_FS_C52_7500_PLAND","NLCD2011_FS_C71_7500_PLAND",
       "NLCD2011_FS_C81_7500_PLAND","NLCD2011_FS_C82_7500_PLAND","NLCD2011_FS_C90_7500_PLAND",
       "NLCD2011_FS_C95_7500_PLAND")*/
-    df = df.select(colNames.head,colNames.tail: _*)
+    //df = df.select(colNames.head,colNames.tail: _*)
+    val colNos = Array(2,3,5,6,7,26,955,956,957,958,960,962,963,964,965,966,967)
+    df = df.select(colNos map df.columns map col: _*)
+    df.show
+    //df = df.select(*({
+    //  df.columns(10)
+    //}))
 
-    df.withColumn("uniqueID",monotonically_increasing_id()).show()
+    //df.withColumn("uniqueID",monotonically_increasing_id()).show()
     val colsToBeImputed = Array("POP00_SQMI","HOUSING_DENSITY", "HOUSING_PERCENT_VACANT", "CAUS_TEMP_AVG", "CAUS_TEMP_MIN", "CAUS_TEMP_MAX", "CAUS_PREC","CAUS_SNOW","OMERNIK_L3_ECOREGION","BCR","ELEV_GT")
 
     val categoricalCol = Array("ELEV_GT","CAUS_TEMP_AVG", "CAUS_TEMP_MIN", "CAUS_TEMP_MAX", "CAUS_PREC","CAUS_SNOW")
