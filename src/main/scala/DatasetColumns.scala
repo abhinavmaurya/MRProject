@@ -78,18 +78,13 @@ object DatasetColumns {
     print(getColumnIndexList())
   }*/
 
-  def getColumnIndexList = columnNameIndexPairs.map(tuple=>tuple._2)
+  def getColumnIndexList = columnNameIndexPairs.map(tuple=>tuple._2).toArray
 
-  def getColumnNameList= columnNameIndexPairs.map(tuple=>tuple._1)
+  def getColumnNameList= columnNameIndexPairs.map(tuple=>tuple._1).toArray
 
   def getColumnNameIndexPairList = columnNameIndexPairs
 
   def getLabelColumnName = "Agelaius_phoeniceus"
 
   def getLabelColumnIndex = 26
-
-  def getFeaturesColumnName = columnNameIndexPairs.map(tuple=>tuple._1).filter(name => name!=getLabelColumnName)
-
-  def getFeaturesColumnIndex = columnNameIndexPairs.map(tuple=>tuple._2).filter(name => name!=getLabelColumnIndex)
-
 }
