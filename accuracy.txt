@@ -1,0 +1,17 @@
+(25,15) - 14.8%  error
+(25,8) - 19.38 %
+(30,10) - 18% 
+
+(30,18) - 
+
+(125,8) - 19.5%
+
+
+
+
+AWS 
+(125,10) - 22.2%
+(125,10) - with reduced features 
+(25,15) - with imputation -
+(25,15)  without imputation -
+(25,15) with less features -
