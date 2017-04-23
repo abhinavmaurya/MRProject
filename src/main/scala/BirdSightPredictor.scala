@@ -154,8 +154,8 @@ object BirdSightPredictor {
         .setLabelCol("label")
        .setFeaturesCol("features")
        //.setNumTrees(125)
-        .setNumTrees(25)
-       .setMaxDepth(8)
+        .setNumTrees(30)
+       .setMaxDepth(10)
       //.setMaxBins(125)
 
 
@@ -179,38 +179,41 @@ object BirdSightPredictor {
 
 
     val paramGrid = new ParamGridBuilder()
-      .addGrid(rf.numTrees,Array(100,125))
+      .addGrid(rf.numTrees,Array(28,30,32))
       //.addGrid(rf.numTrees,Array(125))
       //.addGrid(rf.maxDepth, Array(10))
-      .addGrid(rf.maxDepth, Array(8,10))
+      .addGrid(rf.maxDepth, Array(12,15,16))
       .addGrid(rf.impurity, Array("entropy", "gini"))
       .build()
-    /*
+
      val cv = new CrossValidator()
        .setEstimator(pipeline)
        .setEvaluator(new MulticlassClassificationEvaluator)
        .setEstimatorParamMaps(paramGrid)
-       .setNumFolds(2)  // Use 3+ in practice
-    */
+       .setNumFolds(3)  // Use 3+ in practice
 
-/*    val trainValidationSplit = new TrainValidationSplit()
+
+    /*
+    val trainValidationSplit = new TrainValidationSplit()
       .setEstimator(pipeline)
       .setEvaluator(new BinaryClassificationEvaluator)
       .setEstimatorParamMaps(paramGrid)
       // 80% of the data will be used for training and the remaining 20% for validation.
-      .setTrainRatio(0.8)
+      .setTrainRatio(0.8)*/
 
-    trainingData.show
-     val cvModel = trainValidationSplit.fit(trainingData)
-     //val cvModel = cv.fit(trainingData)
+
+    //trainingData.show
+     //val cvModel = trainValidationSplit.fit(trainingData)
+     val cvModel = cv.fit(trainingData)
      val predictions_cv = cvModel.transform(testData)
      val accuracy_cv = evaluator.evaluate(predictions_cv)
-     println("New Accuracy after selecting best model= " + accuracy_cv)*/
+     println("New Accuracy after selecting best model= " + accuracy_cv)
 
 
-    val rfModel = model.stages(1).asInstanceOf[RandomForestClassificationModel]
+    //val rfModel = model.stages(1).asInstanceOf[RandomForestClassificationModel]
+    val rfModel = cvModel.write.overwrite().save(args(1))
 
-    rfModel.write.overwrite().save("model_2")
+    //rfModel.write.overwrite().save(args(1))
     //rfModel.write.overwrite.save("model")
     //rfModel.toDebugString
 
