@@ -3,20 +3,12 @@
   */
 
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.sql.functions.udf
 import org.apache.spark.sql.types._
-import org.apache.spark.mllib.tree.RandomForest
 import org.apache.spark.ml.classification.{RandomForestClassificationModel, RandomForestClassifier}
 import org.apache.spark.sql.SQLContext
-import org.apache.spark.ml.feature.{IndexToString, StringIndexer, VectorIndexer}
 import org.apache.spark.sql.functions._
-import com.google.common.collect.ImmutableMap
-import org.apache.spark.sql.functions.countDistinct
 import org.apache.spark.ml.Pipeline
 import org.apache.spark.ml.feature.VectorAssembler
-import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
-import org.apache.spark.ml.tuning.{CrossValidator, ParamGridBuilder}
-import org.apache.spark.ml.evaluation.BinaryClassificationEvaluator
 
 object BirdSightPredict {
 
@@ -25,15 +17,11 @@ object BirdSightPredict {
 
     val featuresInput = DatasetColumns.getColumnNameList.toBuffer - (DatasetColumns.getLabelColumnName, "SAMPLING_EVENT_ID")
 
-    //val featuresInput = DatasetColumns.getFeaturesColumnName.toBuffer - "SAMPLING_EVENT_ID"
-    println(featuresInput)
-    //val colNames = DatasetColumns.getColumnNameList.toArray
-
     val finalOuputColumns = Array("SAMPLING_EVENT_ID", "SAW_AGELAIUS_PHOENICEUS")
 
     val conf = new SparkConf().setAppName("EBird")
-      .setMaster("local[*]")
-      //.setMaster("yarn")
+      //.setMaster("local[*]")
+      .setMaster("yarn")
     val sc = new SparkContext(conf)
     val sqlContext = new SQLContext(sc)
     import sqlContext.implicits._
@@ -43,8 +31,8 @@ object BirdSightPredict {
       .option("header", "true") // Use first line of all files as header
       .option("NullValue","?")
       .option("inferSchema", "true") // Automatically infer data types
-      .load("subset_test.csv")
-      //.load(args(0))
+      //.load("subset_test.csv")
+      .load(args(0))
 
     /*val colNames = Array("SAMPLING_EVENT_ID","LATITUDE","LONGITUDE","MONTH","DAY","TIME","Agelaius_phoeniceus",
       "POP00_SQMI","HOUSING_DENSITY","HOUSING_PERCENT_VACANT","ELEV_GT"
@@ -99,7 +87,8 @@ object BirdSightPredict {
     val testData = assembler.transform(finalDf)
 
     // Retrieve the RandomForest model from hdfs
-    val rfModelFile = RandomForestClassificationModel.load("model")
+    //val rfModelFile = RandomForestClassificationModel.load("model")
+    val rfModelFile = RandomForestClassificationModel.load(args(1))
 
     // Chain indexers and forest in a Pipeline.
     val pipeline = new Pipeline()
@@ -116,6 +105,7 @@ object BirdSightPredict {
 
     finalOutput.show(100)
     //Creates the output in the required file format
-    finalOutput.coalesce(1).write.format("com.databricks.spark.csv").option("header","true").save("output")
+    //finalOutput.coalesce(1).write.format("com.databricks.spark.csv").option("header","true").save("output")
+    finalOutput.coalesce(1).write.format("com.databricks.spark.csv").option("header","true").save(args(2))
   }
 }
