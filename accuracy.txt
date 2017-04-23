@@ -12,6 +12,8 @@
 AWS 
 (125,10) - 22.2%
 (125,10) - with reduced features 
-(25,15) - with imputation -
-(25,15)  without imputation -
+(25,15) - with imputation - 18.3%  error
+(25,15)  without imputation - 18.1%  error
 (25,15) with less features -
+(30,15) without imputation - 18.3% error 
+(30,18) without imputation - 15.9% error
