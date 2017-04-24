@@ -4,4 +4,3 @@ project/*
 .classpath
 .project
 .settings/
-*.csv
